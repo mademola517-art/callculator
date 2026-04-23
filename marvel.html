@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Calculator</title>
+ <style>
+   body {
+     font-family: Arial, sans-serif;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     height: 100vh;
+     margin: 0;
+     background-color: #4800ff;
+      backdrop-filter: initial;
+   }
+   .calculator {
+     background: #ffffff;
+     padding: 20px;
+     border-radius: 10px;
+     box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+   }
+   .display {
+     width: 100%;
+     height:80px;
+     margin-bottom: 10px;
+     text-align: right;
+     font-size: 1.5rem;
+     padding: 5px;
+   }
+   .buttons {
+     display: grid;
+     grid-template-columns: repeat(4, 1fr);
+     gap: 10px;
+   }
+   button {
+     padding: 15px;
+     font-size: 1.2rem;
+     border: none;
+     border-radius: 5px;
+     cursor: pointer;
+   }
+   button.operator {
+     background-color: #1229ab;
+     color: rgb(255, 255, 255);
+   }
+   button.clear {
+     background-color: #e00000;
+     color: white;
+   }
+   button.equal {
+     background-color: #0c8f2a;
+     color: rgb(255, 255, 255);
+   }
+   button:hover {
+     opacity: 0.9;
+   }
+   .you{
+    background-color: #000000fe;
+    color: #ffffff;
+   }
+   .youu{
+    background-color: rgb(191, 189, 189);
+   }
+ </style>
+</head>
+<body>
+<div class="calculator">
+ <input type="text" id="display" class="display" disabled>
+ <div class="buttons">
+   <button onclick="clearDisplay()" class="clear">C</button>
+   <button onclick="appendValue('%')" class="operator">%</button>
+   <button onclick="appendValue('/')" class="operator">/</button>
+   <button onclick="appendValue('*')" class="operator">*</button>
+   <button onclick="appendValue('7')" class="you">7</button>
+   <button onclick="appendValue('8')" class="you">8</button>
+   <button onclick="appendValue('9')" class="you">9</button>
+   <button onclick="appendValue('-')" class="operator">-</button>
+   <button onclick="appendValue('4')" class="you">4</button>
+   <button onclick="appendValue('5')" class="you">5</button>
+   <button onclick="appendValue('6')" class="you">6</button>
+   <button onclick="appendValue('+')" class="operator">+</button>
+   <button onclick="appendValue('1')" class="you">1</button>
+   <button onclick="appendValue('2')"class="you">2</button>
+   <button onclick="appendValue('3')"class="you">3</button>
+   <button onclick="alert('ANY IFORMATION OR HAVING A PROBLEM WITH THE CALCULATOR CONTACT THIS LINE[07052071781 / 08101266016]')" class="youu">INFO</button>
+   <button onclick="calculate()" class="equal">=</button>
+   <button onclick="appendValue('0')" style="grid-column: span 2;" class="you">0</button>
+   <button onclick="appendValue('.')"class="you">.</button>
+  
+ </div>
+</div>
+<script>
+ const display = document.getElementById("display");
+ function appendValue(value) {
+   display.value += value;
+ }
+ function clearDisplay() {
+   display.value = "";
+ }
+ function calculate() {
+   try {
+     display.value = eval(display.value);
+   } catch ( syntaxerror ) {
+     display.value = "SantaxError";
+   }
+ }
+ 
+</script>
+</body>
+</html>
